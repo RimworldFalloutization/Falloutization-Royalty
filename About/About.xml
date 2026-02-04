@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <packageId>Falloutization.Royalty</packageId>
+    <author>Canenald</author>
+    <name>Falloutization: Royalty</name>
+    <description>A mod that makes the main Royalty DLC content fit the Fallout setting.</description>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            <packageId>Ludeon.RimWorld.Royalty</packageId>
+            <displayName>Royalty</displayName>
+        </li>
+    </modDependencies>
+    <loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Odyssey</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
+    </loadAfter>
+    <modVersion>1.0</modVersion>
+</ModMetaData>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Disable passage offworld quest by removing the storyteller component from BaseStoryteller -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/StorytellerDef[@Name="BaseStoryteller"]/comps/li[@Class="StorytellerCompProperties_SingleOnceFixed" and incident="GiveQuest_EndGame_ShipEscape"]</xpath>
+  </Operation>
+</Patch>
