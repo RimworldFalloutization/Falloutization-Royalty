@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld.QuestGen;
@@ -96,6 +97,45 @@ namespace Falloutization.Royalty
             __instance.def = extension.transportShipDef;
 
             return true;
+        }
+    }
+
+    /// <summary>
+    /// Use FCP vertibird size (10,8) for landing spot search when FCP_Vertibird def exists,
+    /// so vertibirds get a large enough landing area instead of vanilla shuttle size.
+    /// </summary>
+    [HarmonyPatch(typeof(DropCellFinder))]
+    public static class DropCellFinder_GetBestShuttleLandingSpot_Patch
+    {
+        static System.Reflection.MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(DropCellFinder), nameof(DropCellFinder.GetBestShuttleLandingSpot),
+                new Type[] { typeof(Map), typeof(Faction), typeof(Thing).MakeByRefType() });
+        }
+
+        public static bool Prefix(Map map, Faction factionForFindingSpot, ref Thing firstBlockingThing, ref IntVec3 __result)
+        {
+            ThingDef vertibirdDef = DefDatabase<ThingDef>.GetNamedSilentFail("FCP_Vertibird");
+            if (vertibirdDef == null)
+                return true;
+
+            IntVec2 size = vertibirdDef.size;
+            IntVec2 sizeWithBorder = size + new IntVec2(2, 2);
+
+            if (!DropCellFinder.TryFindShipLandingArea(map, out IntVec3 result, out firstBlockingThing))
+                result = DropCellFinder.TryFindSafeLandingSpotCloseToColony(map, size, factionForFindingSpot);
+
+            if (!result.IsValid && !DropCellFinder.FindSafeLandingSpot(out result, factionForFindingSpot, map, 35, 15, 25, sizeWithBorder))
+            {
+                IntVec3 intVec = DropCellFinder.RandomDropSpot(map);
+                if (!intVec.IsValid)
+                    intVec = DropCellFinder.RandomDropSpot(map, standableOnly: false);
+                if (!DropCellFinder.TryFindDropSpotNear(intVec, map, out result, allowFogged: false, canRoofPunch: false, allowIndoors: false, sizeWithBorder))
+                    result = intVec;
+            }
+
+            __result = result;
+            return false;
         }
     }
 }   
