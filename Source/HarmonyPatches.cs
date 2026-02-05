@@ -33,12 +33,16 @@ namespace Falloutization.Royalty
             }
 
             FactionModExtension extension = faction.def.GetModExtension<FactionModExtension>();
-            if (extension?.transportShipDef?.shipThing == null) {
-                Log.Warning("[Falloutization: Royalty] QuestNode_GenerateShuttle: Custom transport ship def not found, falling back to original.");
-                return true;
+            TransportShipDef transportShipDef = extension?.transportShipDef;
+            if (transportShipDef?.shipThing == null) {
+                transportShipDef = DefDatabase<TransportShipDef>.GetNamedSilentFail("FCP_Vertibird");
+                if (transportShipDef?.shipThing == null) {
+                    Log.Warning("[Falloutization: Royalty] QuestNode_GenerateShuttle: No custom transport ship and FCP_Vertibird not found, falling back to original.");
+                    return true;
+                }
             }
 
-            ThingDef thingDef = extension.transportShipDef.shipThing;
+            ThingDef thingDef = transportShipDef.shipThing;
             Thing thing = ThingMaker.MakeThing(thingDef);
             thing.SetFaction(faction);
 
@@ -89,12 +93,16 @@ namespace Falloutization.Royalty
             }
 
             FactionModExtension extension = faction.def.GetModExtension<FactionModExtension>();
-            if (extension?.transportShipDef == null) {
-                Log.Warning("[Falloutization: Royalty] QuestNode_GenerateShuttle: Custom transport ship def not found, bailing.");
-                return true;
+            TransportShipDef transportShipDef = extension?.transportShipDef;
+            if (transportShipDef == null) {
+                transportShipDef = DefDatabase<TransportShipDef>.GetNamedSilentFail("FCP_Vertibird");
+                if (transportShipDef == null) {
+                    Log.Warning("[Falloutization: Royalty] QuestNode_GenerateTransportShip: No custom transport ship and FCP_Vertibird not found, bailing.");
+                    return true;
+                }
             }
 
-            __instance.def = extension.transportShipDef;
+            __instance.def = transportShipDef;
 
             return true;
         }
