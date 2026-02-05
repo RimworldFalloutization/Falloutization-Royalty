@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Use asker's faction for the drop-off shuttle in Hospitality (Joiners/Prisoners) so FCP factions get their vertibirds -->
+  <!-- Use asker's faction for the drop-off shuttle in Hospitality (Joiners/Prisoners/Animals) so FCP factions get their vertibirds -->
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/QuestScriptDef[defName="Util_ArriveByDropPodsOrShuttle"]/root/nodes/li[node/nodes/li/def="Util_TransportShip_DropOff"]/node/nodes/li[def="Util_TransportShip_DropOff"]/parms/owningFaction</xpath>
+    <value>
+      <owningFaction>$askerFaction</owningFaction>
+    </value>
+  </Operation>
+  <!-- Use asker's faction for the pickup shuttle in Hospitality_Util_Worker so the same faction's vertibird comes to collect -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/QuestScriptDef[defName="Hospitality_Util_Worker"]/root/nodes/li[@Class="QuestNode_ShuttleDelay"]/node/nodes/li[def="Util_TransportShip_Pickup"]/parms</xpath>
     <value>
       <owningFaction>$askerFaction</owningFaction>
     </value>
