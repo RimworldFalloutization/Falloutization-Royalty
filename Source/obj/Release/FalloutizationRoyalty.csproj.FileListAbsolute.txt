@@ -1,0 +1,6 @@
+/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/obj/Release/FalloutizationRoyalty.csproj.AssemblyReference.cache
+/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/obj/Release/FalloutizationRoyalty.GeneratedMSBuildEditorConfig.editorconfig
+/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/obj/Release/FalloutizationRoyalty.csproj.CoreCompileInputs.cache
+/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/1.6/Assemblies/FalloutizationRoyalty.dll
+/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/obj/Release/Fallouti.C05A57C5.Up2Date
+/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/obj/Release/FalloutizationRoyalty.dll

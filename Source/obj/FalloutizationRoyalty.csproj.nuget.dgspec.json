@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/FalloutizationRoyalty.csproj": {}
+  },
+  "projects": {
+    "/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/FalloutizationRoyalty.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/FalloutizationRoyalty.csproj",
+        "projectName": "FalloutizationRoyalty",
+        "projectPath": "/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/FalloutizationRoyalty.csproj",
+        "packagesPath": "/home/milosrasic/.nuget/packages/",
+        "outputPath": "/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Royalty/Source/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/milosrasic/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Krafs.Publicizer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.*, )"
+            },
+            "Krafs.Rimworld.Ref": {
+              "target": "Package",
+              "version": "[1.6.*-*, )"
+            },
+            "Lib.Harmony": {
+              "target": "Package",
+              "version": "[2.3.3, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Add FactionModExtension for shuttles to Enclave faction -->
+  <Operation Class="PatchOperationAdd" MayRequire="Rick.FCP.Enclave">
+    <xpath>Defs/FactionDef[defName="FCP_Faction_Enclave"]/modExtensions</xpath>
+    <value>
+      <li Class="FCP_Shuttles.FactionModExtension">
+        <transportShipDef>FCP_Enclave_Vertibird</transportShipDef>
+        <minDistanceBetweenShuttles>10</minDistanceBetweenShuttles>
+        <maxPawnCountInOneShuttle>6</maxPawnCountInOneShuttle>
+      </li>
+    </value>
+  </Operation>
+</Patch>

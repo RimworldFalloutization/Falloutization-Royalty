@@ -12,6 +12,11 @@
             <packageId>Ludeon.RimWorld.Royalty</packageId>
             <displayName>Royalty</displayName>
         </li>
+        <li>
+            <packageId>Rick.FCP.Core.Tools</packageId>
+            <displayName>FCP - Tools</displayName>
+            <downloadUrl>https://github.com/FalloutCollaborationProject/FCP-Tools</downloadUrl>
+        </li>
     </modDependencies>
     <loadAfter>
 		<li>Ludeon.RimWorld</li>
@@ -20,6 +25,9 @@
 		<li>Ludeon.RimWorld.Odyssey</li>
 		<li>Ludeon.RimWorld.Biotech</li>
 		<li>Ludeon.RimWorld.Anomaly</li>
+		<li>Rick.FCP.Core.Tools</li>
+		<li>Rick.FCP.Enclave</li>
+        <li>Rick.FCP.BOS</li>
     </loadAfter>
     <modVersion>1.0</modVersion>
 </ModMetaData>
