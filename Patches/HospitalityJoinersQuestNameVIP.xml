@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Replace royal/noble/aristocrat lodgerIndef quest name rules with VIP (singular) and VIPs (plural) -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/QuestScriptDef[defName="Hospitality_Joiners"]/questNameRules/rulesStrings/li[text()="lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)->a royal" or text()="lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)->a noble" or text()="lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)->an aristocrat" or text()="lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount>=2)->royals" or text()="lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount>=2)->nobles" or text()="lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount>=2)->aristocrats"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/QuestScriptDef[defName="Hospitality_Joiners"]/questNameRules/rulesStrings</xpath>
+    <value>
+      <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount==1)->a VIP</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/QuestScriptDef[defName="Hospitality_Joiners"]/questNameRules/rulesStrings</xpath>
+    <value>
+      <li>lodgerIndef(asker_royalInCurrentFaction==True,lodgersCount>=2)->VIPs</li>
+    </value>
+  </Operation>
+</Patch>
