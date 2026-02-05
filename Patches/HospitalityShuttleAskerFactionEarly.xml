@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch MayRequire="Ludeon.RimWorld.Royalty">
+  <!-- Set askerFaction at the start of Hospitality_Util_Worker so Util_ArriveByDropPodsOrShuttle
+       (patched to use $askerFaction for owningFaction) gets the correct faction for drop-off shuttle. -->
+  <Operation Class="PatchOperationInsert">
+    <xpath>Defs/QuestScriptDef[defName="Hospitality_Util_Worker"]/root/nodes/li[@Class="QuestNode_GreaterOrEqual"]</xpath>
+    <value>
+      <li Class="QuestNode_GetFactionOf">
+        <thing>$asker</thing>
+        <storeAs>askerFaction</storeAs>
+      </li>
+    </value>
+  </Operation>
+</Patch>
