@@ -47,8 +47,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="FCP_Shuttles">
-      <HintPath>..\..\FCP-Tools\1.6\Assemblies\FCP_Shuttles.dll</HintPath>
+    <Reference Include="FCP_Core">
+      <HintPath>..\..\FCP-Tools\1.6\Assemblies\FCP_Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

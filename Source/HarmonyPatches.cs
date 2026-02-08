@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using HarmonyLib;
+using RimWorld;
 using RimWorld.QuestGen;
 using Verse;
-using FCP_Shuttles;
+using FCP.Core.Shuttles;
 
 namespace Falloutization.Royalty
 {
@@ -105,6 +107,119 @@ namespace Falloutization.Royalty
             __instance.def = transportShipDef;
 
             return true;
+        }
+    }
+
+    /// <summary>
+    /// Patch the Hospitality quests pickup if the mod is enabled with the quest already in progress
+    /// or gets broken by breaking changes in FCP mods
+    /// </summary>
+    [HarmonyPatch(typeof(QuestPart_AddShipJob), nameof(QuestPart_AddShipJob.Notify_QuestSignalReceived))]
+    public static class QuestPart_AddShipJob_Notify_QuestSignalReceived_Patch
+    {
+        public static void Prefix(QuestPart_AddShipJob __instance, Signal signal)
+        {
+            if (__instance == null) {
+                return;
+            }
+
+            if (signal.tag != __instance.inSignal) {
+                return;
+            }
+
+            if (__instance.transportShip != null)  {
+                return;
+            }
+
+            if (__instance.shipJob.def.defName != "Arrive") {
+                return;
+            }
+
+            var involvedFactions = __instance.quest.InvolvedFactions?.ToList();
+            Faction askerFaction = involvedFactions != null && involvedFactions.Count > 0 ? involvedFactions[0] : null;
+            if (askerFaction?.def == null)
+            {
+                Log.Warning("[Falloutization: Royalty] QuestPart_AddShipJob: asker faction is null, bailing.");
+                return;
+            }
+
+            FactionModExtension extension = askerFaction.def.GetModExtension<FactionModExtension>();
+            TransportShipDef transportShipDef = extension?.transportShipDef;
+            if (transportShipDef == null) {
+                transportShipDef = DefDatabase<TransportShipDef>.GetNamedSilentFail("FCP_Vertibird");
+                if (transportShipDef == null) {
+                    Log.Warning("[Falloutization: Royalty] QuestPart_AddShipJob: No custom transport ship and FCP_Vertibird not found, bailing.");
+                    return;
+                }
+            }
+
+            var parts = __instance.quest?.PartsListForReading;
+            if (parts == null) {
+                Log.Warning("[Falloutization: Royalty] QuestPart_AddShipJob: PartsListForReading is null, bailing");
+                return;
+            }
+
+            List<Pawn> lodgers = null;
+            foreach (var part in parts) {
+                if (part == null) {
+                    continue;
+                }
+
+                if (part is QuestPart_ShuttleDelay shuttleDelayPart) {
+                    lodgers = shuttleDelayPart.lodgers;
+                    break;
+                }
+            }
+            if (lodgers == null)
+            {
+                Log.Warning("[Falloutization: Royalty] QuestPart_AddShipJob: could not find QuestPart_ShuttleDelay lodgers, bailing.");
+                return;
+            }
+            
+            Thing shipThing = ThingMaker.MakeThing(transportShipDef.shipThing);
+            // link the ship to the quest so it can detect when the quest is completed
+            QuestUtility.AddQuestTag(shipThing, $"Quest{__instance.quest.id}.pickupShipThing");
+
+            var comp = shipThing.TryGetComp<CompShuttle>();
+            if (comp == null)
+            {
+                Log.Warning("[Falloutization: Royalty] QuestPart_AddShipJob: shipThing has no CompShuttle, bailing.");
+                return;
+            }
+            comp.requiredPawns.AddRange(lodgers);
+            comp.onlyAcceptColonists = false;
+
+            var transportShip = TransportShipMaker.MakeTransportShip(transportShipDef, new List<Thing>(), shipThing);
+            
+            __instance.transportShip = transportShip;
+
+            // Propagate the reconstructed transportShip to the subsequent pickup ship-job parts
+            int idx = parts.IndexOf(__instance);
+            if (idx >= 0)
+            {
+                void TryAssignNext(int offset)
+                {
+                    int i = idx + offset;
+                    if (i < 0 || i >= parts.Count) return;
+                    if (parts[i] is not QuestPart_AddShipJob addJobPart) return;
+
+                    string defName = addJobPart.shipJob?.def?.defName ?? addJobPart.shipJobDef?.defName;
+                    if (defName == "WaitTime" || defName == "FlyAway")
+                    {
+                        addJobPart.transportShip = transportShip;
+                    }
+                }
+
+                TryAssignNext(1);
+                TryAssignNext(2);
+            }
+            else
+            {
+                Log.Warning("[Falloutization: Royalty] QuestPart_AddShipJob: could not find current part index to propagate ship, bailing.");
+                return;
+            }
+
+            transportShip.started = true;
         }
     }
 
