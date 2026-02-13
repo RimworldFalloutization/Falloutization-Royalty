@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <!-- Add FactionModExtension for shuttles to Enclave faction -->
-  <Operation Class="PatchOperationAdd" MayRequire="Rick.FCP.Enclave">
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>FCP - The Enclave</li>
+    </mods>
+    <match Class="PatchOperationAdd" MayRequire="Rick.FCP.Enclave">
     <xpath>Defs/FactionDef[defName="FCP_Faction_Enclave"]/modExtensions</xpath>
     <value>
       <li Class="FCP.Core.Shuttles.FactionModExtension">
@@ -10,5 +14,6 @@
         <maxPawnCountInOneShuttle>6</maxPawnCountInOneShuttle>
       </li>
     </value>
+    </match>
   </Operation>
 </Patch>
