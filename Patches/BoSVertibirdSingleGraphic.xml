@@ -2,30 +2,39 @@
 <Patch>
   <!-- When FCP-Brotherhood-of-Steel is installed: point all BoS vertibird graphics to variant _a and Graphic_Single so building, incoming and leaving match. -->
   <!-- FCP_BoS_Vertibird -->
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.BOS">
-    <xpath>Defs/ThingDef[defName="FCP_BoS_Vertibird"]/graphicData/texPath</xpath>
-    <value><texPath>Things/Vehicles/Shuttles/BoSVertibird/FCP_BoS_Light_Vertibird_a</texPath></value>
-  </Operation>
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.BOS">
-    <xpath>Defs/ThingDef[defName="FCP_BoS_Vertibird"]/graphicData/graphicClass</xpath>
-    <value><graphicClass>Graphic_Single</graphicClass></value>
-  </Operation>
-  <!-- FCP_BoS_VertibirdIncoming -->
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.BOS">
-    <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdIncoming"]/graphicData/texPath</xpath>
-    <value><texPath>Things/Vehicles/Shuttles/BoSVertibird/FCP_BoS_Light_Vertibird_a</texPath></value>
-  </Operation>
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.BOS">
-    <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdIncoming"]/graphicData/graphicClass</xpath>
-    <value><graphicClass>Graphic_Single</graphicClass></value>
-  </Operation>
-  <!-- FCP_BoS_VertibirdLeaving -->
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.BOS">
-    <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdLeaving"]/graphicData/texPath</xpath>
-    <value><texPath>Things/Vehicles/Shuttles/BoSVertibird/FCP_BoS_Light_Vertibird_a</texPath></value>
-  </Operation>
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.BOS">
-    <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdLeaving"]/graphicData/graphicClass</xpath>
-    <value><graphicClass>Graphic_Single</graphicClass></value>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>FCP - Brotherhood of Steel</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+    <operations>
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="FCP_BoS_Vertibird"]/graphicData/texPath</xpath>
+      <value><texPath>Things/Vehicles/Shuttles/BoSVertibird/FCP_BoS_Light_Vertibird_a</texPath></value>
+    </li>
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="FCP_BoS_Vertibird"]/graphicData/graphicClass</xpath>
+      <value><graphicClass>Graphic_Single</graphicClass></value>
+    </li>
+    <!-- FCP_BoS_VertibirdIncoming -->
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdIncoming"]/graphicData/texPath</xpath>
+      <value><texPath>Things/Vehicles/Shuttles/BoSVertibird/FCP_BoS_Light_Vertibird_a</texPath></value>
+    </li>
+    <li Class="PatchOperationReplace" MayRequire="Rick.FCP.BOS">
+      <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdIncoming"]/graphicData/graphicClass</xpath>
+      <value><graphicClass>Graphic_Single</graphicClass></value>
+    </li>
+    <!-- FCP_BoS_VertibirdLeaving -->
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdLeaving"]/graphicData/texPath</xpath>
+      <value><texPath>Things/Vehicles/Shuttles/BoSVertibird/FCP_BoS_Light_Vertibird_a</texPath></value>
+    </li>
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/ThingDef[defName="FCP_BoS_VertibirdLeaving"]/graphicData/graphicClass</xpath>
+      <value><graphicClass>Graphic_Single</graphicClass></value>
+    </li>
+    </operations>
+    </match>
   </Operation>
 </Patch>
