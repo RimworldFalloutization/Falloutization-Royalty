@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Clone BoS royal permits onto Outcast, Lyons, Midwest, and Lost Hills. Permits are faction-bound, so the defs in FCP-Brotherhood-of-Steel (faction FCP_Faction_BoS) never appear for these chapters. -->
+  <Operation Class="PatchOperationAdd" MayRequire="Rick.FCP.BOS">
+    <xpath>Defs</xpath>
+    <value>
+      <!--_____ Outcast Permits _____-->
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Outcast_Supply_Drop_Food</defName>
+        <label>Outcast Food Drop</label>
+        <faction>FCP_Faction_BoS_Outcast_Remnants</faction>
+        <description>Call for Brotherhood Outcast food supplies.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>15</cooldownDays>
+        <minTitle>FCP_Title_Outcast_Specialist</minTitle>
+        <uiPosition>(0,0)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Food_Crate>1</FCP_Item_BoS_Food_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Outcast_Protector</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Outcast_Supply_Drop_Weapons</defName>
+        <label>Outcast Weapon Drop</label>
+        <faction>FCP_Faction_BoS_Outcast_Remnants</faction>
+        <description>Call for Brotherhood Outcast standard issue weapons.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_Outcast_Defender</minTitle>
+        <uiPosition>(0,1)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Weapon_Crate>1</FCP_Item_BoS_Standard_Weapon_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Outcast_Protector</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Outcast_Supply_Drop_Uniforms</defName>
+        <label>Outcast Uniform Drop</label>
+        <faction>FCP_Faction_BoS_Outcast_Remnants</faction>
+        <description>Call for Brotherhood Outcast uniforms.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_Outcast_Specialist</minTitle>
+        <uiPosition>(0,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Outcast_Uniform_Crate>1</FCP_Item_BoS_Outcast_Uniform_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Outcast_Protector</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Outcast_Supply_Drop_Tech_Resources</defName>
+        <label>Outcast Tech Resource Drop</label>
+        <faction>FCP_Faction_BoS_Outcast_Remnants</faction>
+        <description>Call for Brotherhood Outcast technical resources and components.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_Outcast_Specialist</minTitle>
+        <uiPosition>(1,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Tech_Resource_Crate>1</FCP_Item_BoS_Standard_Tech_Resource_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Outcast_Protector</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef>
+        <defName>FCP_Permit_BoS_Outcast_Call_Reinforcements</defName>
+        <label>Outcast Reinforcements</label>
+        <workerClass>FCP.Enlist.RoyalTitlePermitWorker_CallReinforcements</workerClass>
+        <faction>FCP_Faction_BoS_Outcast_Remnants</faction>
+        <description>Call in Brotherhood Outcast defenders to reinforce your settlement.</description>
+        <permitPointCost>2</permitPointCost>
+        <cooldownDays>20</cooldownDays>
+        <minTitle>FCP_Title_Outcast_Defender</minTitle>
+        <uiPosition>(2,1)</uiPosition>
+        <royalAid>
+          <favorCost>10</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Outcast_Protector</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <!--_____ Lyons' Pride Permits _____-->
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Lyons_Supply_Drop_Food</defName>
+        <label>Lyons Pride Food Drop</label>
+        <faction>FCP_Faction_BoS_Lyons_Pride_Remnants</faction>
+        <description>Call for Lyons' Pride food supplies.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>15</cooldownDays>
+        <minTitle>FCP_Title_Lyons_Pride_Recruit</minTitle>
+        <uiPosition>(0,0)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Food_Crate>1</FCP_Item_BoS_Food_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Lyons_Champion</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Lyons_Supply_Drop_Weapons</defName>
+        <label>Lyons Pride Weapon Drop</label>
+        <faction>FCP_Faction_BoS_Lyons_Pride_Remnants</faction>
+        <description>Call for Lyons' Pride standard issue weapons.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_Lyons_Knight</minTitle>
+        <uiPosition>(0,1)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Weapon_Crate>1</FCP_Item_BoS_Standard_Weapon_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Lyons_Champion</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Lyons_Supply_Drop_Uniforms</defName>
+        <label>Lyons Pride Uniform Drop</label>
+        <faction>FCP_Faction_BoS_Lyons_Pride_Remnants</faction>
+        <description>Call for Lyons' Pride uniforms.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_Lyons_Pride_Recruit</minTitle>
+        <uiPosition>(0,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Lyons_Pride_Uniform_Crate>1</FCP_Item_BoS_Lyons_Pride_Uniform_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Lyons_Champion</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Lyons_Supply_Drop_Tech_Resources</defName>
+        <label>Lyons Pride Tech Resource Drop</label>
+        <faction>FCP_Faction_BoS_Lyons_Pride_Remnants</faction>
+        <description>Call for Lyons' Pride technical resources and components.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_Lyons_Scribe</minTitle>
+        <uiPosition>(1,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Tech_Resource_Crate>1</FCP_Item_BoS_Standard_Tech_Resource_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Lyons_Champion</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef>
+        <defName>FCP_Permit_BoS_Lyons_Call_Reinforcements</defName>
+        <label>Lyons Pride Reinforcements</label>
+        <workerClass>FCP.Enlist.RoyalTitlePermitWorker_CallReinforcements</workerClass>
+        <faction>FCP_Faction_BoS_Lyons_Pride_Remnants</faction>
+        <description>Call in Lyons' Pride knights to reinforce your settlement.</description>
+        <permitPointCost>2</permitPointCost>
+        <cooldownDays>20</cooldownDays>
+        <minTitle>FCP_Title_Lyons_Knight</minTitle>
+        <uiPosition>(2,1)</uiPosition>
+        <royalAid>
+          <favorCost>10</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_Lyons_Champion</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <!--_____ Midwestern Brotherhood Permits _____-->
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Midwest_Supply_Drop_Food</defName>
+        <label>Midwest Food Drop</label>
+        <faction>FCP_Faction_BoS_Midwest</faction>
+        <description>Call for Midwestern Brotherhood food supplies.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>15</cooldownDays>
+        <minTitle>FCP_Title_BoS_Initiate</minTitle>
+        <uiPosition>(0,0)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Food_Crate>1</FCP_Item_BoS_Food_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Midwest_General</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Midwest_Supply_Drop_Weapons</defName>
+        <label>Midwest Weapon Drop</label>
+        <faction>FCP_Faction_BoS_Midwest</faction>
+        <description>Call for Midwestern Brotherhood standard issue weapons.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_BoS_Knight</minTitle>
+        <uiPosition>(0,1)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Weapon_Crate>1</FCP_Item_BoS_Standard_Weapon_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Midwest_General</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Midwest_Supply_Drop_Uniforms</defName>
+        <label>Midwest Uniform Drop</label>
+        <faction>FCP_Faction_BoS_Midwest</faction>
+        <description>Call for Midwestern Brotherhood standard uniforms.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_BoS_Initiate</minTitle>
+        <uiPosition>(0,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Uniform_Crate>1</FCP_Item_BoS_Standard_Uniform_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Midwest_General</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_Midwest_Supply_Drop_Tech_Resources</defName>
+        <label>Midwest Tech Resource Drop</label>
+        <faction>FCP_Faction_BoS_Midwest</faction>
+        <description>Call for Midwestern Brotherhood technical resources and components.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_BoS_Scribe</minTitle>
+        <uiPosition>(1,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Tech_Resource_Crate>1</FCP_Item_BoS_Standard_Tech_Resource_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Midwest_General</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef>
+        <defName>FCP_Permit_BoS_Midwest_Call_Reinforcements</defName>
+        <label>Midwest Reinforcements</label>
+        <workerClass>FCP.Enlist.RoyalTitlePermitWorker_CallReinforcements</workerClass>
+        <faction>FCP_Faction_BoS_Midwest</faction>
+        <description>Call in Midwestern Brotherhood knights to reinforce your settlement.</description>
+        <permitPointCost>2</permitPointCost>
+        <cooldownDays>20</cooldownDays>
+        <minTitle>FCP_Title_BoS_Knight</minTitle>
+        <uiPosition>(2,1)</uiPosition>
+        <royalAid>
+          <favorCost>10</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Midwest_General</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <!--_____ Lost Hills Chapter Permits _____-->
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_LostHills_Supply_Drop_Food</defName>
+        <label>Lost Hills Food Drop</label>
+        <faction>FCP_Faction_BoS_Lost_Hills</faction>
+        <description>Call for Lost Hills Chapter food supplies.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>15</cooldownDays>
+        <minTitle>FCP_Title_BoS_Initiate</minTitle>
+        <uiPosition>(0,0)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Food_Crate>1</FCP_Item_BoS_Food_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Elder</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_LostHills_Supply_Drop_Weapons</defName>
+        <label>Lost Hills Weapon Drop</label>
+        <faction>FCP_Faction_BoS_Lost_Hills</faction>
+        <description>Call for Lost Hills Chapter standard issue weapons.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_BoS_Knight</minTitle>
+        <uiPosition>(0,1)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Weapon_Crate>1</FCP_Item_BoS_Standard_Weapon_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Elder</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_LostHills_Supply_Drop_Uniforms</defName>
+        <label>Lost Hills Uniform Drop</label>
+        <faction>FCP_Faction_BoS_Lost_Hills</faction>
+        <description>Call for Lost Hills Chapter standard uniforms.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_BoS_Initiate</minTitle>
+        <uiPosition>(0,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Uniform_Crate>1</FCP_Item_BoS_Standard_Uniform_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Elder</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef ParentName="FCP_Permit_BoS_DropResourcesBase">
+        <defName>FCP_Permit_BoS_LostHills_Supply_Drop_Tech_Resources</defName>
+        <label>Lost Hills Tech Resource Drop</label>
+        <faction>FCP_Faction_BoS_Lost_Hills</faction>
+        <description>Call for Lost Hills Chapter technical resources and components.</description>
+        <permitPointCost>1</permitPointCost>
+        <cooldownDays>30</cooldownDays>
+        <minTitle>FCP_Title_BoS_Scribe</minTitle>
+        <uiPosition>(1,2)</uiPosition>
+        <royalAid>
+          <itemsToDrop>
+            <FCP_Item_BoS_Standard_Tech_Resource_Crate>1</FCP_Item_BoS_Standard_Tech_Resource_Crate>
+          </itemsToDrop>
+          <favorCost>6</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Elder</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+
+      <RoyalTitlePermitDef>
+        <defName>FCP_Permit_BoS_LostHills_Call_Reinforcements</defName>
+        <label>Lost Hills Reinforcements</label>
+        <workerClass>FCP.Enlist.RoyalTitlePermitWorker_CallReinforcements</workerClass>
+        <faction>FCP_Faction_BoS_Lost_Hills</faction>
+        <description>Call in Lost Hills Chapter knights to reinforce your settlement.</description>
+        <permitPointCost>2</permitPointCost>
+        <cooldownDays>20</cooldownDays>
+        <minTitle>FCP_Title_BoS_Knight</minTitle>
+        <uiPosition>(2,1)</uiPosition>
+        <royalAid>
+          <favorCost>10</favorCost>
+        </royalAid>
+        <modExtensions>
+          <li Class="FCP.Factions.PermitExtension_MaxFactionTitle">
+            <maxTitle>FCP_Title_BoS_Elder</maxTitle>
+          </li>
+        </modExtensions>
+      </RoyalTitlePermitDef>
+    </value>
+  </Operation>
+</Patch>
