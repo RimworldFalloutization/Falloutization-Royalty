@@ -28,6 +28,7 @@
 		<li>Rick.FCP.Core.Tools</li>
 		<li>Rick.FCP.Enclave</li>
         <li>Rick.FCP.BOS</li>
+        <li>FIP.Whitespring</li>
     </loadAfter>
     <modVersion>1.0</modVersion>
 </ModMetaData>

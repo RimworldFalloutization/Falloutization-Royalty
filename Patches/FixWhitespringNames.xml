@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Whitespring rethemes Empire as Enclave/Whitespring; swap Sophian imperial namers for FCP Retro. -->
+  <Operation Class="PatchOperationReplace" MayRequire="FIP.Whitespring">
+    <xpath>Defs/CultureDef[defName="Sophian"]/pawnNameMaker</xpath>
+    <value>
+      <pawnNameMaker>FCP_Retro_Namer_Male</pawnNameMaker>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace" MayRequire="FIP.Whitespring">
+    <xpath>Defs/CultureDef[defName="Sophian"]/pawnNameMakerFemale</xpath>
+    <value>
+      <pawnNameMakerFemale>FCP_Retro_Namer_Female</pawnNameMakerFemale>
+    </value>
+  </Operation>
+</Patch>
