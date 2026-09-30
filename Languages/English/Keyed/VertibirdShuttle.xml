@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Core keyed strings. XML patches cannot reach Languages/Keyed, and these show for every vertibird that uses CompShuttle. -->
+  <MessageShuttleArrived>Vertibird Arrived</MessageShuttleArrived>
+  <LetterLabelShuttleArrived>Vertibird Arrived</LetterLabelShuttleArrived>
+  <EnterShuttle>Get on vertibird</EnterShuttle>
+</LanguageData>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Royalty quests use vertibirds, so the arrival letter title should say so. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/QuestScriptDef//label[@TKey="LetterLabelShuttleArrived"]</xpath>
+    <value>
+      <label TKey="LetterLabelShuttleArrived">Vertibird Arrived</label>
+    </value>
+  </Operation>
+</Patch>
